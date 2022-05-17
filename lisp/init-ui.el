@@ -5,25 +5,12 @@
 ;;; Code:
 ;; 启动全屏
 ;;(add-hook 'window-setup-hook #'toggle-frame-fullscreen)
-(defun set-frame-size-according-to-resolution ()
-  (interactive)
-  (if window-system
-  (progn
-    ;; use 120 char wide window for largeish displays
-    ;; and smaller 80 column windows for smaller displays
-    ;; pick whatever numbers make sense for you
-    (if (> (x-display-pixel-width) 1280)
-           (add-to-list 'default-frame-alist (cons 'width 120))
-           (add-to-list 'default-frame-alist (cons 'width 80)))
-    ;; for the height, subtract a couple hundred pixels
-    ;; from the screen height (for panels, menubars and
-    ;; whatnot), then divide by the height of a char to
-    ;; get the height we want
-    (add-to-list 'default-frame-alist 
-         (cons 'height (/ (- (x-display-pixel-height) 200)
-                             (frame-char-height)))))))
+;;设置窗口位置为屏库左上角(0,0)
+(set-frame-position (selected-frame) 0 0)
+;; 设置宽和高
+(set-frame-width (selected-frame) 100)
+(set-frame-height (selected-frame) 33)
 
-(set-frame-size-according-to-resolution)
 
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode
 (tool-bar-mode -1)

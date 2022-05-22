@@ -1,6 +1,7 @@
 
 .recentf
 server/
+transient/
 auto-save-list/
 elpa/
 url/

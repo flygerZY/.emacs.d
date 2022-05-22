@@ -31,8 +31,6 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-;;load theme
-(load-theme 'leuven t)
 
 ;;hight line
 (global-hl-line-mode t)

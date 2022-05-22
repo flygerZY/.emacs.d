@@ -113,7 +113,8 @@
 ;; 使用char-based决策树跳转到可见文本
 (use-package avy
   :ensure t
-  :bind ("M-g w" . avy-goto-word-1) 
+  :bind ("M-g w" . avy-goto-word-1)
+  :bind ("C-l" . avy-goto-char-2)
   :bind ("M-g f" . avy-goto-line)) 
 
 ;; undo tree

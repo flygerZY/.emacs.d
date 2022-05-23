@@ -14,12 +14,12 @@
 ;;
 ;;(setq-default indent-tabs-mode nil)       ;;false tab indent mode
 ;;(setq-default tab-width 4)
-;;(setq verilog-indent-level 4)             ;;Indentation of Verilog statements with respect to containing block
-;;(setq verilog-indent-level-module 0)      ;;Indentation of Module level Verilog statements (eg always, initial)
-;;(setq verilog-indent-level-declaration 0) ;;Indentation of declarations with respect to containing block
-;;(setq verilog-case-indent 4)              ;;Indentation for case statements
-;;(setq verilog-cexp-indent 4)              ;;Indentation of Verilog statements split across lines
-;;(setq verilog-indent-lists t)             ;;Indentation of lists, look the under content.
+(setq verilog-indent-level 4)             ;;Indentation of Verilog statements with respect to containing block
+(setq verilog-indent-level-module 4)      ;;Indentation of Module level Verilog statements (eg always, initial)
+(setq verilog-indent-level-declaration 4) ;;Indentation of declarations with respect to containing block
+(setq verilog-case-indent 4)              ;;Indentation for case statements
+(setq verilog-cexp-indent 4)              ;;Indentation of Verilog statements split across lines
+(setq verilog-indent-lists t)             ;;Indentation of lists, look the under content.
 ;;;;  "How to treat indenting items in a list.
 ;;;;If t (the default), indent as:
 ;;;;	always @( posedge a or
@@ -29,8 +29,8 @@
 ;;;;	always @( posedge a or
 ;;;;	   reset ) begin"
 ;;
-;;(setq verilog-indent-level-behavioral 4)  ;;Absolute indentation of first begin in a task or function block
-;;(setq verilog-indent-level-directive 4)   ;;Indentation to add to each level of \\=`ifdef declarations
+(setq verilog-indent-level-behavioral 4)  ;;Absolute indentation of first begin in a task or function block
+(setq verilog-indent-level-directive 4)   ;;Indentation to add to each level of \\=`ifdef declarations
 ;;(setq verilog-auto-indent-on-newline t)   ;;Non-nil means automatically indent line after newline
 ;;(setq verilog-tab-always-indent t)        ;;Non-nil means TAB should always re-indent the current line.
 ;;                                          ;;A nil value means TAB will only reindent when at the beginning of the line.

@@ -11,8 +11,12 @@
 (set-language-environment 'utf-8)
 
 ;;使 Emacs 自动加载外部修改过的文件
-(add-hook 'after-init-hook 'global-auto-revert-mode)
-;;(global-auto-revert-mode 1)
+;; Keeping buffers automatically up-to-date.
+(require 'autorevert)
+(global-auto-revert-mode 1)
+(setq auto-revert-verbose t
+      auto-revert-use-notify nil
+      auto-revert-stop-on-user-input nil)
 
 ;; auto-fill-mode, Help by command or variable name
 (add-hook 'after-init-hook 'auto-fill-mode)
@@ -30,10 +34,13 @@
      kept-new-versions 3 ; 保留最近的3个备份文件
      kept-old-versions 1 ; 保留最早的1个备份文件
      version-control t) ; 多次备份
-;; tab 设置为4个空格
-(setq-default indent-tabs-mode nil);  TAB插入空格
-(setq default-tab-width 4);tab4个字符宽度
 
+;; tab 设置为4个空格
+(setq-default indent-tabs-mode nil)         ;tab插入空格
+(setq-default tab-width 4)                  ;tab4个字符宽度
+(setq indent-line-function 'insert-tab)     ;缩进时插入tab
+
+    
 
 ;; use short answers for YES/NO ect.
 (setq use-short-answers t)

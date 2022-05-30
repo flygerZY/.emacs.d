@@ -103,7 +103,8 @@
 (use-package avy
   :ensure t
   :bind ("M-g w" . avy-goto-word-1)
-  :bind ("C-l" . avy-goto-char-2)
+  :bind ("C-'" . avy-goto-char-2)
+  :bind ("C-:" . avy-goto-char)
   :bind ("M-g f" . avy-goto-line)) 
 
 ;; undo tree

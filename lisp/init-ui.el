@@ -31,40 +31,62 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-
 ;;hight line
 (global-hl-line-mode t)
 
-;;font
-(defvar cn-fonts-list '("文泉译微米黑" "黑体" "STHeiti" "微软雅黑" )
-  "定义使用的中文字体候选列表.")
 
-(defvar en-fonts-list '("Monaco" "Cascadia Code" "Courier New"  "Ubuntu Mono")
-  "定义使用的英文字体候选列表.")
+;; default
+(set-face-attribute 'default nil :font (font-spec :family "Monaco"
+                          :size 14))
 
-(defvar emoji-fonts-list '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
-  "定义使用Emoji字体候选列表.")
+(when (eq system-type 'darwin)
+  (setq fonts '("SF Mono" "冬青黑体简体中文"))
+  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
+  (set-face-attribute 'default nil :font
+                      (format "%s:pixelsize=%d" (car fonts) 14)))
 
-;;;###autoload
-(defun tenon--font-setup ()
-  "Font setup."
+(when (eq system-type 'windows-nt)
+  (setq fonts '("Monaco" "文泉译微米黑"))
+  (set-fontset-font t 'unicode "Segoe UI Emoji" nil 'prepend)
+  (set-face-attribute 'default nil :font
+                      (format "%s:pixelsize=%d" (car fonts) 14)))
 
-  (interactive)
-  (let* ((cf (tenon--available-font cn-fonts-list))
-	     (ef (tenon--available-font en-fonts-list))
-         (em (tenon--available-font emoji-fonts-list)))
-    (when ef
-      (dolist (face '(default fixed-pitch fixed-pitch-serif variable-pitch))
-	    (set-face-attribute face nil :family ef)))
-    (when em
-      (dolist (charset `(unicode unicode-bmp ,(if (> emacs-major-version 27) 'emoji 'symbol)))
-        (set-fontset-font t charset em nil 'prepend)))
-    (when cf
-      (dolist (charset '(kana han cjk-misc bopomofo))
-	    (set-fontset-font t charset cf))
-      (setq face-font-rescale-alist
-	    (mapcar (lambda (item) (cons item 1.2)) `(,cf ,em))))))
+(when (eq system-type 'gnu/linux)
+  (setq fonts '("Source Code Pro" "思源黑体"))
+  (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
+  (set-face-attribute 'default nil :font
+                      (format "%s:pixelsize=%d" (car fonts) 14)))
 
+;;;;;font
+;;;(defvar cn-fonts-list '("文泉译微米黑" "黑体" "STHeiti" "微软雅黑" )
+;;;  "定义使用的中文字体候选列表.")
+;;;
+;;;(defvar en-fonts-list '("Monaco" "Cascadia Code" "Courier New"  "Ubuntu Mono")
+;;;  "定义使用的英文字体候选列表.")
+;;;
+;;;(defvar emoji-fonts-list '("Apple Color Emoji" "Segoe UI Emoji" "Noto Color Emoji" "Symbola" "Symbol")
+;;;  "定义使用Emoji字体候选列表.")
+;;;
+;;;;;;###autoload
+;;;(defun tenon--font-setup ()
+;;;  "Font setup."
+;;;
+;;;  (interactive)
+;;;  (let* ((cf (tenon--available-font cn-fonts-list))
+;;;	     (ef (tenon--available-font en-fonts-list))
+;;;         (em (tenon--available-font emoji-fonts-list)))
+;;;    (when ef
+;;;      (dolist (face '(default fixed-pitch fixed-pitch-serif variable-pitch))
+;;;	    (set-face-attribute face nil :family ef)))
+;;;    (when em
+;;;      (dolist (charset `(unicode unicode-bmp ,(if (> emacs-major-version 27) 'emoji 'symbol)))
+;;;        (set-fontset-font t charset em nil 'prepend)))
+;;;    (when cf
+;;;      (dolist (charset '(kana han cjk-misc bopomofo))
+;;;	    (set-fontset-font t charset cf))
+;;;      (setq face-font-rescale-alist
+;;;	    (mapcar (lambda (item) (cons item 1.2)) `(,cf ,em))))))
+;;;
 
 
 (provide 'init-ui)

@@ -4,6 +4,12 @@
 
 ;;; Code:
 
+;;;; theme spacemacs-theme
+;;(use-package spacemacs-theme
+;;  :defer t
+;;  :init (load-theme 'spacemacs-dark t))
+
+;; theme modus
 (use-package emacs
   :init
   ;; Add all your customizations prior to loading the themes

@@ -85,14 +85,30 @@
          ("M-n"   . move-dup-move-lines-down)
          ("C-M-n" . move-dup-duplicate-down)))
 
-;; neotree, file tree manager
-(use-package neotree
-  :commands (neo-buffer--lock-width neo-buffer--unlock-width)
-  :config (setq neo-autorefresh t
-		        neo-theme 'nerd
-		        neo-click-changes-root t
-		        neo-smart-open t)
-  :bind ("<f5>" . neotree-toggle))
+;;;; neotree, file tree manager
+;;(use-package neotree
+;;  :commands (neo-buffer--lock-width neo-buffer--unlock-width)
+;;  :config (setq neo-autorefresh t
+;;		        neo-theme 'nerd
+;;		        neo-click-changes-root t
+;;		        neo-smart-open t)
+;;  :bind ("<f5>" . neotree-toggle))
+(use-package treemacs
+  :ensure t
+  :defer t
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t d"   . treemacs-select-directory)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+
+(use-package treemacs-icons-dired
+  :hook (dired-mode . treemacs-icons-dired-enable-once)
+  :ensure t)
 
 ;; test emacs init time
 (use-package benchmark-init
@@ -128,10 +144,15 @@
   (add-to-list 'all-the-icons-ivy-file-commands 'counsel-find-library)
   (all-the-icons-ivy-setup))
 
-(use-package all-the-icons-dired
-  :ensure t)
+(use-package diredfl
+  :ensure t
+  :config (diredfl-global-mode t))
 
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(use-package all-the-icons-dired
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+
 
 ;; highlight-symbol
 (use-package highlight-symbol
@@ -160,7 +181,10 @@
 ;; restart-emacs
 (use-package restart-emacs
   :ensure t)
-  
+
+;; switch window fast
+(use-package ace-window
+  :bind ("C-x o" . ace-window))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-packages)
 ;;; init-packages.el ends here

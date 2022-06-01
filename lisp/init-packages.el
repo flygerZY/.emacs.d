@@ -176,7 +176,8 @@
 ;; doom-modeline
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode))
+  :init (doom-modeline-mode 1))
+  ;;:hook (after-init . doom-modeline-mode))
 
 ;; restart-emacs
 (use-package restart-emacs

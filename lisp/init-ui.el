@@ -49,10 +49,10 @@
   (setq fonts '("Monaco" "文泉译微米黑"))
   (set-fontset-font t 'unicode "Segoe UI Emoji" nil 'prepend)
   (set-face-attribute 'default nil :font
-                      (format "%s:pixelsize=%d" (car fonts) 14)))
+                      (format "%s:pixelsize=%d" (car fonts) 16)))
 
 (when (eq system-type 'gnu/linux)
-  (setq fonts '("Source Code Pro" "思源黑体"))
+  (setq fonts '("Monaco" "思源黑体"))
   (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
   (set-face-attribute 'default nil :font
                       (format "%s:pixelsize=%d" (car fonts) 14)))

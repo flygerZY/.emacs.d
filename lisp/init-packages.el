@@ -118,6 +118,7 @@
 ;; 使用char-based决策树跳转到可见文本
 (use-package avy
   :ensure t
+  :bind ("M-j" . avy-goto-char-timer)
   :bind ("M-g w" . avy-goto-word-1)
   :bind ("C-'" . avy-goto-char-2)
   :bind ("C-:" . avy-goto-char)

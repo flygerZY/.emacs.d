@@ -4,6 +4,7 @@ server/
 transient/
 auto-save-list/
 elpa/
+.cache/
 url/
 eshell/
 *.???~

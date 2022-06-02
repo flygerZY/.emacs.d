@@ -73,5 +73,15 @@
   (setq file-name-coding-system 'gb18030) ; 设置文件名的编码为gb18030
   )
 
+;;;; awesome tab
+;;(use-package awesome-tab
+;;  :load-path "~/lisp"
+;;  :config
+;;  (awesome-tab-mode t))
+(add-to-list 'load-path (expand-file-name "~/elisp"))
+
+(require 'awesome-tab)
+
+(awesome-tab-mode t)
 
 (provide 'init-test)

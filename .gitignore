@@ -1,5 +1,6 @@
 
 .recentf
+lisp/custom.el
 server/
 transient/
 auto-save-list/

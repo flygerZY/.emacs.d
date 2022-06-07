@@ -1,5 +1,6 @@
 
 .recentf
+history
 lisp/custom.el
 server/
 transient/

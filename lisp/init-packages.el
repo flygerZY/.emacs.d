@@ -159,7 +159,8 @@
 (use-package highlight-symbol
   :ensure t
   :init (highlight-symbol-mode)
-  :bind ("C-c h" . highlight-symbol) ;; 按下 F3 键就可高亮当前符号
+  :bind ("C-<f3>" . highlight-symbol)
+  :bind ("S-<f3>" . highlight-symbol-prev);; 按下 F3 键就可高亮当前符号
   :bind ("<f3>" . highlight-symbol-next)) ;; 按下 F3 键就可高亮当前符号
 
 ;; rainbow-delimiter

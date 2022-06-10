@@ -6,10 +6,10 @@
 ;; 启动全屏
 ;;(add-hook 'window-setup-hook #'toggle-frame-fullscreen)
 ;;设置窗口位置为屏库左上角(0,0)
-(set-frame-position (selected-frame) 0 0)
-;; 设置宽和高
-(set-frame-width (selected-frame) 100)
-(set-frame-height (selected-frame) 33)
+;;(set-frame-position (selected-frame) 0 0)
+;;;; 设置宽和高
+;;(set-frame-width (selected-frame) 100)
+;;(set-frame-height (selected-frame) 33)
 
 
 ;; 关闭工具栏，tool-bar-mode 即为一个 Minor Mode

@@ -156,12 +156,12 @@
 
 
 ;; highlight-symbol
-(use-package highlight-symbol
-  :ensure t
-  :init (highlight-symbol-mode)
-  :bind ("C-<f3>" . highlight-symbol)
-  :bind ("S-<f3>" . highlight-symbol-prev);; 按下 F3 键就可高亮当前符号
-  :bind ("<f3>" . highlight-symbol-next)) ;; 按下 F3 键就可高亮当前符号
+;;(use-package highlight-symbol
+;;  :ensure t
+;;  :init (highlight-symbol-mode)
+;;  :bind ("C-<f3>" . highlight-symbol)
+;;  :bind ("S-<f3>" . highlight-symbol-prev);; 按下 F3 键就可高亮当前符号
+;;  :bind ("<f3>" . highlight-symbol-next)) ;; 按下 F3 键就可高亮当前符号
 
 ;; rainbow-delimiter
 (use-package rainbow-delimiters
@@ -175,10 +175,26 @@
   ("C-a" . mwim-beginning-of-code-or-line)
   ("C-e" . mwim-end-of-code-or-line))
 
+;;--------------------------------------------------------------------------------
+(use-package simple
+  :ensure nil
+  :hook (after-init . size-indication-mode)
+  :init
+  (progn
+    (setq column-number-mode t)
+    ))
+
+;;modeline上显示我的所有的按键和执行的命令
+(package-install 'keycast)
+(add-to-list 'global-mode-string '("" keycast-mode-line))
+(keycast-mode t)
+
+;; 这里的执行顺序非常重要，doom-modeline-mode 的激活时机一定要在设置global-mode-string 之后‘
+;; --------------------------------------------------------------------------------
 ;; doom-modeline
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1))
+  :init (doom-modeline-mode t))
   ;;:hook (after-init . doom-modeline-mode))
 
 ;; restart-emacs

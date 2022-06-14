@@ -74,6 +74,7 @@
   (setq file-name-coding-system 'gb18030) ; 设置文件名的编码为gb18030
   )
 
+;; --------------------------------------------------------------------------------
 ;;;; awesome tab
 ;;(use-package awesome-tab
 ;;  :load-path "~/lisp"
@@ -149,7 +150,7 @@
 (use-package consult
   ;; Replace bindings. Lazily loaded due by `use-package'.
   :bind (;; C-c bindings (mode-specific-map)
-         ("C-c h" . consult-history)
+         ;;("C-c h" . consult-history)
          ("C-c m" . consult-mode-command)
          ("C-c k" . consult-kmacro)
          ;; C-x bindings (ctl-x-map)
@@ -313,5 +314,30 @@
   ;; auto-updating embark collect buffer
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
+
+;; --------------------------------------------------------------------------------
+;; symbol-overlay
+;;;  a highlight-symbol replacement.
+(use-package symbol-overlay
+  :config
+  (setq symbol-overlay-map (make-sparse-keymap))
+  (setq my/symbol-overlay-keymap (make-sparse-keymap))
+  ;;(define-key my/symbol-overlay-keymap (kbd "h") 'symbol-overlay-put)
+  ;;(define-key (kbd "<f3>") 'symbol-overlay-put)
+  ;;(define-key my/symbol-overlay-keymap (kbd "n") 'symbol-overlay-jump-next)
+  (define-key my/symbol-overlay-keymap (kbd "p") 'symbol-overlay-jump-prev)
+  (define-key my/symbol-overlay-keymap (kbd "w") 'symbol-overlay-save-symbol)
+  (define-key my/symbol-overlay-keymap (kbd "t") 'symbol-overlay-toggle-in-scope)
+  (define-key my/symbol-overlay-keymap (kbd "e") 'symbol-overlay-echo-mark)
+  (define-key my/symbol-overlay-keymap (kbd "d") 'symbol-overlay-jump-to-definition)
+  (define-key my/symbol-overlay-keymap (kbd "s") 'symbol-overlay-isearch-literally)
+  (define-key my/symbol-overlay-keymap (kbd "q") 'symbol-overlay-query-replace)
+  (define-key my/symbol-overlay-keymap (kbd "r") 'symbol-overlay-rename)
+  (global-set-key (kbd "C-c h") my/symbol-overlay-keymap)
+  :bind
+  ("C-<f3>" . symbol-overlay-put)
+  ("<f3>" . symbol-overlay-jump-next)
+  )
+
 ;; --------------------------------------------------------------------------------
 (provide 'init-test)

@@ -23,7 +23,7 @@
 
 ;;关闭自动生产的保存文件
 (setq auto-save-default nil)
-
+(delete-selection-mode t)
 ;;no backup file
 ;;(setq make-backup-files nil) ;;关闭自动备份
 (setq

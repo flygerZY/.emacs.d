@@ -340,4 +340,27 @@
   )
 
 ;; --------------------------------------------------------------------------------
+(use-package projectile
+  :ensure t
+  :bind (("C-c p" . projectile-command-map))
+  :config
+  (setq projectile-mode-line "Projectile")
+  (setq projectile-track-known-projects-automatically nil))
+
+(use-package counsel-projectile
+  :ensure t
+  :after (projectile)
+  :init (counsel-projectile-mode))
+;; --------------------------------------------------------------------------------
+(defun wttr/prepend-to-exec-path (path)
+  "prepand the path to the emacs intenral `exec-path' and \"PATH\" env variable.
+Return the updated `exec-path'"
+  (setenv "PATH" (concat (expand-file-name path)
+                         path-separator
+                         (getenv "PATH")))
+  (setq exec-path
+        (cons (expand-file-name path)
+              exec-path)))
+(wttr/prepend-to-exec-path "C:\\Program Files\\GnuWin32\\bin")
+;; --------------------------------------------------------------------------------
 (provide 'init-test)

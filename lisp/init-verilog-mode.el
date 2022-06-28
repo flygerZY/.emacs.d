@@ -12,8 +12,8 @@
 ;;
 ;;(setq verilog-date-scientific-format t)   ;;dates are written in scientific format (e.g.  1997/09/17)
 ;;
-;;(setq-default indent-tabs-mode nil)       ;;false tab indent mode
-;;(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)       ;;false tab indent mode
+(setq-default tab-width 4)
 (setq verilog-indent-level 4)             ;;Indentation of Verilog statements with respect to containing block
 (setq verilog-indent-level-module 4)      ;;Indentation of Module level Verilog statements (eg always, initial)
 (setq verilog-indent-level-declaration 4) ;;Indentation of declarations with respect to containing block

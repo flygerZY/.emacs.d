@@ -23,10 +23,19 @@
   (find-file "~/.emacs.d/init.el"))
 
 ;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
-(global-set-key (kbd "<f2>") 'open-init-file)  
+(global-set-key (kbd "<f2>") 'open-init-file)
 
+;; --------------------------------------------------------------------------------
+;; 快速复制当前行
+(defun my-copy-line()
+  (interactive)
+  (clipboard-kill-region (point-at-bol) (point-at-eol))
+  (yank)
+  )
 
+(global-set-key (kbd "C-c y") 'my-copy-line)
 
+;; --------------------------------------------------------------------------------
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
 ;; Local Variables:

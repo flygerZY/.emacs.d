@@ -28,7 +28,7 @@
 ;; Youdao Dictionary
 (use-package youdao-dictionary
   :ensure t
-  :bind (("C-c y" . youdao-dictionary-search-at-point))
+  :bind (("C-c d" . youdao-dictionary-search-at-point))
   :init
   (setq url-automatic-caching t
 	youdao-dictionary-use-chinese-word-segmentation t)) ; 中文分词
@@ -122,7 +122,7 @@
   :bind ("M-g w" . avy-goto-word-1)
   :bind ("C-'" . avy-goto-char-2)
   :bind ("C-:" . avy-goto-char)
-  :bind ("M-g f" . avy-goto-line)) 
+  :bind ("M-g l" . avy-goto-line)) 
 
 ;; undo tree
 (use-package undo-tree

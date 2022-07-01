@@ -10,15 +10,15 @@
 ;;  :init (load-theme 'spacemacs-dark t))
 
 ;; --------------------------------------------------------------------------------
-(use-package zenburn-theme
-  :defer t
-  :init (load-theme 'zenburn t))
+;; (use-package zenburn-theme
+;;   :defer t
+;;   :init (load-theme 'zenburn t))
 ;; --------------------------------------------------------------------------------
 
 ;; --------------------------------------------------------------------------------
-;; (use-package gruvbox-theme
-;;   :defer t
-;;   :init (load-theme 'gruvbox t))
+ (use-package gruvbox-theme
+   :defer t
+   :init (load-theme 'gruvbox t))
 ;; --------------------------------------------------------------------------------
 
 ;;;; theme modus

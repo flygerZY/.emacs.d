@@ -1,3 +1,9 @@
+;; --------------------------------------------------------------------------------
+(use-package evil-matchit
+  :defer t
+  :bind ("C-c j" . evilmi-jump-items-native)
+  )
+;; --------------------------------------------------------------------------------
 ;;;(use-package corfu
 ;;;  ;; Optional customizations
 ;;;  ;; :custom
